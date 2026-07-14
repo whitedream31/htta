@@ -6,8 +6,6 @@ http://www.tooplate.com/view/2100-artist
 
 */
 
-/*@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700|Playfair+Display');*/
-/*@import url('https://fonts.googleapis.com/css2?family=Allerta&display=swap')*/
 @import url('https://fonts.googleapis.com/css2?family=Allerta&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
 body {
@@ -207,7 +205,12 @@ a:hover, a:active, a:focus {
 -----------------------------------------*/
 
 #home {
-    background: url('../images/home-bg.jpg') 50% 0 repeat-y scroll;
+    /*background: url('../images/home-bg.jpg') 50% 0 repeat-y scroll;*/
+    background-image:image-set(
+      url("../images/home-bg.webp") type("image/webp"),
+      url("../images/home-bg.jpg") type("image/jpeg")
+    );
+    background-attachment: fixed;
     background-size: cover;
     background-position: center center;
     border-radius: 5px;
