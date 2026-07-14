@@ -1,0 +1,14 @@
+User-Agent: *
+Disallow: 
+Allow: /
+Allow: /index.html
+Allow: /activities.html
+Allow: /events.html
+Allow: /gallery.html
+Allow: /articles.html
+Allow: /newsletters.html
+Allow: /social.html
+Allow: /membership.html
+Allow: /contact.html
+
+Sitemap: http://haverhill-twintown.org/sitemap.xml

@@ -1,0 +1,42 @@
+home
+- events.html
+  - new events #future
+  - previous events #past
+  - german visit #german
+  - french visit #french
+
+- membership.html
+  - join us #join
+  - last agm #agm
+  - the constitution #constitution
+
+- about.html
+  - Haverhill
+  - Pont Saint Esprit
+  - Ehringshausen
+
+- contact.html
+
+- articles.html
+  - art-welcome
+  - art-culture
+  - art-social
+
+- activities.html
+  - events #click-event
+  - recent photos #click-photos
+  - twin towns #click-twintowns
+  - about #click-about
+
+- newsletters.html
+  #recentarticles
+
+- privacy.html
+.
+
+
+engagement
+occasion
+function
+gathering
+

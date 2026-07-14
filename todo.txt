@@ -1,0 +1,17 @@
+Work to do:
+
+done    The newsletter links should be working soon (there's a bug in it at the moment).
+done    The newsletter subscribing should be working by the weekend (if I get the time, if not next week).
+
+1dy     general tidy up (event lines) and remove 'interested' on old events
+2dy     The contact page should be working in about a week.
+
+1wk    The newsletter section is missing. Should be done in around a two weeks time.
+
+    There is a bug in the gallery. It works but the scrolling stops after clicking on a picture. I may leave this for the time being.
+    Other galleries (pictures and videos) and proper articles are needed (not important until the site is up and running)
+
+
+ALTER TABLE `event` ADD `cutoffdate` DATE NULL AFTER `endtime`, ADD INDEX (`cutoffdate`);
+
+ALTER TABLE `event` CHANGE `enddate` `enddate` DATE NOT NULL;

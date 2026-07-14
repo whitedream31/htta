@@ -1,203 +1,270 @@
-<!DOCTYPE HTML>
-<!--
-  Horizons by TEMPLATED
-  templated.co @templatedco
-  Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Events - Haverhill Twin Towning Association</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.dropotron.min.js"></script>
-    <script src="js/skel.min.js"></script>
-    <script src="js/skel-layers.min.js"></script>
-    <script src="js/init.js"></script>
-    <noscript>
-      <link rel="stylesheet" href="css/skel.css" />
-      <link rel="stylesheet" href="css/style.css" />
-    </noscript>
-    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-99375554-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </head>
-  <body class="homepage">
+<head>
+  <title>Event Manager</title>
+  <style>
+    body{font-family:Arial;margin:40px;}
+    table{border-collapse:collapse;width:100%;}
+    th,td{border:1px solid #ccc;padding:6px;}
+    th{cursor:pointer;background:#eee;}
+    input,select{width:100%;box-sizing:border-box;}
+    button{padding:4px 8px;}
+    #refPreview{font-weight:bold;color:#666;}
+  </style>
+</head>
+<body>
+  <h2>Event Manager</h2>
+  <button onclick="newEvent()">Add Event</button>
+  <h2>Upcoming Events</h2>
+  <table id="upcomingTable">
+    <thead>
+    <tr>
+      <th onclick="sortTable('startdate','upcoming')">Date</th>
+      <th onclick="sortTable('description','upcoming')">Description</th>
+      <th>Venue</th>
+      <th>Time</th>
+      <th>Booking</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-<!-- Header -->
-    <div id="header2">
-      <div class="container">
+  <h2>Past Events</h2>
+  <table id="pastTable">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+      <th>Venue</th>
+      <th>Time</th>
+      <th>Booking</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
 
-<!-- Logo -->
-        <h1><a href="index.html" id="logo">Haverhill and District Twin Towns Association</a></h1>
+  <h3 id="formTitle">New Event</h3>
 
-<!-- Nav -->
-        <nav id="nav" role="navigation">
-          <ul>
-            <li>
-              <a href="index.html">Home</a>
-            </li>
-            <li>
-              <a href="activities.html">Activities</a>
-              <ul>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="articles.html">Articles</a></li>
-                <li><a href="newsletters.html">Newsletters</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="membership.html">Member Information</a>
-              <ul>
-                <li><a href="membership.html?ty=ref&amp;ref=join">Join Us</a></li>
-                <li><a href="membership.html?ty=ref&amp;ref=agm">Last AGM</a></li>
-                <li><a href="membership.html?ty=ref&amp;ref=committee">Committee</a></li>
-                <li><a href="membership.html?ty=ref&amp;ref=constitution">The Constitution</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="contact.html">Contact Us</a>
-              <ul>
-                <li><a href="contact.html?ty=ref&amp;ref=apply">Apply for Membership</a></li>
-                <li><a href="contact.html?ty=ref&amp;ref=msg">Send us a Message</a></li>
-              </ul>
-            </li>
-          </ul>
-        </nav>
+  <div>
+    <div>Ref preview: <span id="refPreview"></span></div>
+    <input type="hidden" id="id">
+    <label>Description</label>
+    <input id="description" oninput="updateRef()">
+    <label>Venue</label>
+    <select id="venueid"></select>
+    <label>Start date</label>
+    <input type="date" id="startdate" onchange="updateRef()">
+    <label>End date</label>
+    <input type="date" id="enddate">
+    <label>Start time</label>
+    <input id="starttime">
+    <label>Booking URL</label>
+    <input id="bookingurl">
+    <label>Content</label>
+    <textarea id="content" rows="6"></textarea>
+    <br><br>
+    <button onclick="save()">Save</button>
+  </div>
 
-<!-- Banner -->
-        <div id="banner" role="banner">
-          <div class="container">
-            <section>
-              <header id="art-welcome" class="major">
-                <h2>Events</h2>
-                <span class="byline">Recent Events</span>
-              </header>
-              <section class="4u" style="text-align: center; display: block">
-              </section>
-            </section>
-          </div>
-        </div>
+<script>
+let events = []
+let venues = []
+let sortColumn = "startdate"
 
-      </div>
-    </div>
+function slug(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/^-|-$/g,"")
+}
 
-<!-- Featured -->
-    <div class="wrapper style1">
-      <section class="container">
-        <header class="major">
-          <a name="content"></a>
-          <h2>Our events</h2>
-          <span class="byline">We have many activities including quiz-nights and BBQs and other events all year around. Click here to find out our future events or find out about previous events.</span>
-        </header>
-<div id="msg"></div>
-        <div id="event-types" class="row no-collapse-1">
-          <section id="calendarheader">
-          </section>
-          <section id="calendarresults">
-          </section>
+function updateRef() {
+  let d = startdate.value
+  let desc = description.value
+  if(!d || !desc) {
+    refPreview.innerText=""
+  } else {
+    let year = d.substring(0, 4)
+    refPreview.innerText = year + "-" + slug(desc)
+  }
+}
 
-<!--
-          <section id="soon-button" class="4u" style="text-align: center; display: block">
-            <h3>Coming Next</h3>
-            <span style="font-size: 96px" class="fa fa-calendar-check-o"></span>
-            <p>Up and coming events.</p>
-<div id="soon">
-</div>
-          </section>
-          <section id="future-button" class="4u" style="text-align: center; display: block">
-            <h3>Future</h3>
-            <span style="font-size: 96px" class="fa fa-calendar-plus-o"></span>
-            <p>Events coming later in the year or next year.</p>
-<div id="future">
-</div>
-          </section>
-          <section id="past-button" class="4u" style="text-align: center; display: block">
-            <h3>Past</h3>
-            <span style="font-size: 96px" class="fa fa-calendar-minus-o"></span>
-            <p>Events that previously took place.</p>
-<div id="past">
-</div>
-          </section>
--->
-        </div>
-      </section>
-    </div>
+async function copyEvent(id) {
+  if(confirm("Copy this event?")) {
+    let r = await fetch("scripts/Control/EventsManagement.php?action=copy", {
+      method:"POST",
+      headers: {
+          "Content-Type":"application/json"
+      },
+      body:JSON.stringify({id:id})
+    });
+    let result = await r.json();
+    if(!result.ok){
+      alert("Copy failed");
+      return;
+    }
 
-    <a name='main'></a>
-    <div id="main" class="wrapper style2" role="main">
-<div id="msg"></div>
-      <section class="container">
-      </section>
-    </div>
+    // Optional: Show the new start date to the user
+    alert("Event copied! New start date: " + result.new_start);
 
-<!-- Footer -->
-    <section id="footer">
-      <div class="container">
+    // Reload the event tables
+    await loadEvents();
 
-<!-- Lists -->
-        <div class="row">
-          <div class="6u">
-            <section>
-              <header class="major">
-                <h2>Newsletters</h2>
-                <span class="byline">Have a look at our newsletters, or why not subscribe?</span>
-              </header>
-              <div class="row">
-                <section class="8u">
-                  <ul id="recentnewsletters" class="default">
-                  </ul>
-                </section>
-              </div>
-<!--
-              <div class="row">
-                <section class="8u">
-                  <h3>Subscribe</h3>
-                  <form action="#" method="POST">
-                    <label for='email'>E-Mail</label><input type='email' name='email' id='email'><br>
-                    <input type='submit' value='Subscribe'>
-                    <div id="subscribemessage"></div>
-                  </form>
-                </section>
-              </div-->
-            </section>
-          </div>
-          <div class="6u">
-            <section>
-              <header class="major">
-                <h3>Subscribe</h3>
-                <span class="byline">Please type in your e-mail address to subscribe to our newsletter.</span>
-              </header>
-              <section class="8u">
-                <h3>Subscribe</h3>
-                <form action="#" method="POST">
-                  <label for='email'>E-Mail</label><input type='email' name='email' id='email'><br>
-                  <input type='submit' value='Subscribe'>
-                  <div id="subscribemessage"></div>
-                </form>
-              </section>
-            </section>
-          </div>
-        </div>
+    // Find the copied event in upcoming events
+    let copiedEvent = events.upcoming.find(e => 
+        e.startdate === result.new_start && 
+        e.description === events.upcoming.find(ev => ev.id === id).description
+    );
 
-<!-- Copyright -->
-        <footer class="copyright">
-          <a href="privacy.html">Our Privacy Policy</a> &mdash;
-          Design: <a href="http://templated.co">TEMPLATED</a> &mdash;
-          Development: <a href="http://whitedreamsoftware.co.uk">Whitedream Software</a>
-        </footer>
+    if (copiedEvent) {
+        // Highlight the row
+        let rows = document.querySelectorAll("#upcomingTable tbody tr");
+        for (let row of rows) {
+            if (row.querySelector("button").onclick.toString().includes(copiedEvent.id)) {
+                row.style.backgroundColor = "#fffa90"; // light yellow
+                // Scroll into view
+                row.scrollIntoView({ behavior: "smooth", block: "center" });
+                // Remove highlight after 3 seconds
+                setTimeout(() => { row.style.backgroundColor = ""; }, 3000);
+                break;
+            }
+        }
 
-      </div>
-    </section>
-    <script src="js/handler-calendarevents.js"></script>
-    <script src="js/handler-newsletters.js"></script>
-  </body>
+        // Automatically open in edit mode
+        edit(copiedEvent);
+    }
+  }
+}
+
+async function loadVenues() {
+  let r = await fetch("scripts/Control/EventsManagement.php?action=venues")
+  venues = await r.json()
+  venueid.innerHTML = ""
+  venues.forEach(v => {
+    let o = document.createElement("option")
+    o.value = v.id
+    o.text = v.description
+    venueid.appendChild(o)
+  })
+}
+
+async function loadEvents() {
+  let r = await fetch("scripts/Control/EventsManagement.php?action=list")
+  let data = await r.json()
+  renderTable(data.upcoming, "upcomingTable")
+  renderTable(data.past, "pastTable")
+}
+
+function renderTable(events,tableId) {
+  let tbody = document.querySelector("#"+tableId+" tbody")
+  tbody.innerHTML = ""
+  events.forEach(e => {
+    let tr = document.createElement("tr")
+    tr.innerHTML = `
+      <td>${e.startdate}</td>
+      <td>${e.description}</td>
+      <td>${e.venue ?? ''}</td>
+      <td>${e.starttime ?? ''}</td>
+      <td>${e.bookingurl ?? ''}</td>
+      <td>
+      <button onclick='edit(${JSON.stringify(e)})'>Edit</button>
+      <button onclick='copyEvent(${e.id})'>Copy</button>
+      <button onclick='del(${e.id})'>Delete</button>
+      </td>
+    `
+    tbody.appendChild(tr)
+  })
+}
+
+function sortTable(col, type) {
+  let list = type=="upcoming" ? events.upcoming : events.past
+  list.sort((a,b) => {
+    if (a[col] < b[col]) return -1
+    if (a[col] > b[col]) return 1
+    return 0
+  })
+  renderTable(list,type=="upcoming"?"upcomingTable":"pastTable")
+}
+
+function render() {
+  let tbody = document.querySelector("#table tbody")
+  tbody.innerHTML = ""
+  events.forEach(e => {
+    let tr = document.createElement("tr")
+    tr.innerHTML = `
+    <td>${e.startdate}</td>
+    <td>${e.description}</td>
+    <td>${e.venue ?? ''}</td>
+    <td>${e.starttime ?? ''}</td>
+    <td>${e.bookingurl ?? ''}</td>
+    <td>
+    <button onclick='edit(${JSON.stringify(e)})'>Edit</button>
+    <button onclick='del(${e.id})'>Delete</button>
+    </td>
+    `
+    tbody.appendChild(tr)
+  })
+}
+
+function newEvent() {
+  id.value = ""
+  description.value = ""
+  startdate.value = ""
+  enddate.value = ""
+  starttime.value = ""
+  bookingurl.value = ""
+  content.value = ""
+  updateRef()
+}
+
+function edit(e) {
+  id.value = e.id
+  description.value = e.description
+  venueid.value = e.venueid
+  startdate.value = e.startdate
+  enddate.value = e.enddate
+  starttime.value = e.starttime
+  bookingurl.value = e.bookingurl
+  content.value = e.content
+  updateRef()
+  window.scrollTo(0, document.body.scrollHeight)
+}
+
+async function save() {
+  let data = {
+    id:id.value,
+    description:description.value,
+    venueid:venueid.value,
+    startdate:startdate.value,
+    enddate:enddate.value,
+    starttime:starttime.value,
+    bookingurl:bookingurl.value,
+    content:content.value
+  }
+  await fetch("scripts/Control/EventsManagement.php?action=save", {
+    method:"POST",
+    body:JSON.stringify(data)
+  })
+  loadEvents()
+  newEvent()
+}
+
+async function del(id) {
+  if(confirm("Delete event?")) {
+    await fetch("scripts/Control/EventsManagement.php?action=delete",{
+    method:"POST",
+    body:JSON.stringify({id})
+    })
+    loadEvents()
+  }
+}
+
+loadVenues()
+loadEvents()
+
+</script>
+
+</body>
 </html>
