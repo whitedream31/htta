@@ -1,0 +1,6 @@
+/ABOUT THIS TEMPLATE.txt
+*.7z
+*.bak
+scripts/consts.php
+scripts/Control/Email/EmailSettings.php
+scripts/Database/UserSettings.php

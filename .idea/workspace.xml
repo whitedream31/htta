@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="255d7ecc-5698-4a7b-b6f9-292ac884548d" name="Changes" comment="Optimise website images and add WebP support">
+      <change afterPath="$PROJECT_DIR$/assets/js/site.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "whitedream31"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/whitedream31/htta.git",
+    "accountId": "28c09b77-117b-4d00-bbaf-103fef6ac92b"
+  }
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.000000000008593" />
+      <entry key="S2" value="1.0017121205494455" />
+      <entry key="S5" value="1.0782372786658747" />
+      <entry key="S10" value="1.2797092752590984" />
+      <entry key="S30" value="1.654073955012699" />
+      <entry key="S60" value="1.8218846291035555" />
+      <entry key="M2" value="2.062892333574473" />
+      <entry key="M5" value="2.8895331557065536" />
+      <entry key="M10" value="4.5457908643174765" />
+      <entry key="M15" value="6.450576746793316" />
+      <entry key="M30" value="12.741156546069412" />
+      <entry key="H1" value="23.25465015558463" />
+      <entry key="H2" value="34.8596410456414" />
+      <entry key="H4" value="44.058616958723036" />
+      <entry key="D1" value="54.513341616175644" />
+      <entry key="W1" value="56.63555686298857" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="1.1898996884377172E-126" />
+      <entry key="S60" value="1.0908252327654135E-63" />
+      <entry key="M2" value="3.3027643463701946E-32" />
+      <entry key="M5" value="2.555942238877239E-13" />
+      <entry key="M10" value="5.055632738715536E-7" />
+      <entry key="M15" value="6.346247592997496E-5" />
+      <entry key="M30" value="0.007966333907763025" />
+      <entry key="H1" value="0.08925432150749345" />
+      <entry key="H2" value="0.29875461755007826" />
+      <entry key="H4" value="0.5465845017470562" />
+      <entry key="D1" value="0.9042243933723498" />
+      <entry key="W1" value="0.9857204021649804" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.9592641193252643" />
+      <entry key="MS500" value="0.991716730746721" />
+      <entry key="S2" value="0.9996265524087591" />
+      <entry key="S5" value="1.0772541512768585" />
+      <entry key="S10" value="1.2790221735034106" />
+      <entry key="S30" value="1.6537228242544093" />
+      <entry key="S60" value="1.8216107019624523" />
+      <entry key="M2" value="2.0623281908682785" />
+      <entry key="M5" value="2.888168647551372" />
+      <entry key="M10" value="4.543567163860374" />
+      <entry key="M15" value="6.448032824166852" />
+      <entry key="M30" value="12.746077816840314" />
+      <entry key="H1" value="23.340896884622904" />
+      <entry key="H2" value="35.15602624076594" />
+      <entry key="H4" value="44.6036586588938" />
+      <entry key="D1" value="55.41723882019032" />
+      <entry key="W1" value="57.62122845588187" />
+    </decayedShown>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8,
+  "fromUser": false
+}]]></component>
+  <component name="ProjectId" id="3GV9h82czgqOW0GfFWnLF55ZNOi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "Version-1.1",
+    "last_opened_file_path": "C:/xampp/htdocs/htta",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\htta\assets" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PS-261.25134.104" />
+        <option value="bundled-php-predefined-a98d8de5180a-6bbb74dbab74-com.jetbrains.php.sharedIndexes-PS-261.25134.104" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="255d7ecc-5698-4a7b-b6f9-292ac884548d" name="Changes" comment="" />
+      <created>1784045986040</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1784045986040</updated>
+      <workItem from="1784045987116" duration="13030000" />
+    </task>
+    <task id="LOCAL-00001" summary="New work before revision work starts">
+      <option name="closed" value="true" />
+      <created>1784046075354</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1784046075355</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Improve initial page rendering performance">
+      <option name="closed" value="true" />
+      <created>1784046809411</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1784046809411</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Optimise website images and add WebP support">
+      <option name="closed" value="true" />
+      <created>1784050613556</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1784050613556</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New work before revision work starts" />
+    <MESSAGE value="Improve initial page rendering performance" />
+    <MESSAGE value="Optimise website images and add WebP support" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimise website images and add WebP support" />
+  </component>
+</project>

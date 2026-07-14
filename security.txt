@@ -1,0 +1,4 @@
+Contact: mailto:support@haverhill-twintown.org
+Expires: 2027-12-31T23:59:59Z
+Preferred-Languages: en
+Canonical: https://haverhill-twintown.org/.well-known/security.txt

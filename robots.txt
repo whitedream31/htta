@@ -1,0 +1,11 @@
+User-agent: *
+
+# Allow all public pages
+Allow: /
+
+# Sitemap
+Sitemap: https://haverhill-twintown.org/sitemap.xml
+
+# Crawl delay is ignored by Google but respected by some bots.
+# Uncomment if you ever experience aggressive crawling.
+# Crawl-delay: 5
