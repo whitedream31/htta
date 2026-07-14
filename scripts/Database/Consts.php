@@ -1,6 +1,4 @@
 <?php
-// GITHUB TOKEN: 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
-
 const DANA_VER = '5.1.0';
 
 const SLASH = '/';
